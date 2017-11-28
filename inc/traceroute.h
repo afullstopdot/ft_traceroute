@@ -380,4 +380,5 @@ void	            sock_set_port(struct sockaddr *sa, socklen_t salen, int port);
 void	            ft_sendto(int fd, const void *ptr, size_t nbytes, int flags, const struct sockaddr *sa, socklen_t salen);
 void                ft_tv_subtract(struct timeval *out, struct timeval *in);
 int                 sock_cmp_addr(const struct sockaddr *sa1, const struct sockaddr *sa2, socklen_t salen);
+int	                ft_socket(int domain, int type, int protocol);
 #endif

@@ -52,8 +52,9 @@ struct addrinfo     *ft_host_serv(const char *host, const char *serv, int family
 	/*
 	** get host name and service
 	*/
+
 	if ((n = getaddrinfo(host, serv, &hints, &res)) != 0)
-	    return (NULL);
+		return (NULL);
 
 	/*
 	** return pointer to first on linked list

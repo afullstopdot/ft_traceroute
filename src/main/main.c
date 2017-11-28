@@ -47,7 +47,7 @@ int                 main(int argc, char **argv)
     ** Allocate some memory for 
     */
 
-    if (!(env = (t_env *)malloc(sizeof(t_env))))
+    if (!(env = (t_env *)malloc(sizeof(t_env))) || !(g_global = (t_global *)malloc(sizeof(t_global))))
     	ft_fatal_error("failed to dynamically allocate memory");
     
     /*

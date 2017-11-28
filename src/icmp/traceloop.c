@@ -26,7 +26,7 @@ void                traceloop(void)
     **
     */
 
-    g_global->recvfd = socket(g_global->pr->sasend->sa_family, SOCK_RAW, g_global->pr->icmpproto);
+    g_global->recvfd = ft_socket(g_global->pr->sasend->sa_family, SOCK_RAW, g_global->pr->icmpproto);
 
     /*
     **
@@ -77,7 +77,7 @@ void                traceloop(void)
     **
     */
 
-    g_global->sendfd = socket(g_global->pr->sasend->sa_family, SOCK_DGRAM, 0);
+    g_global->sendfd = ft_socket(g_global->pr->sasend->sa_family, SOCK_DGRAM, 0);
 
     /*
     **
@@ -89,7 +89,7 @@ void                traceloop(void)
     **
     */
 
-    g_global->sport = (getpid() & 0xffff) | 0x800;
+    g_global->sport = (getpid() & 0xffff) | 0x8000;
 
     /*
     **
@@ -177,6 +177,12 @@ void                traceloop(void)
             */
 
             ft_gettimeofday(&g_global->rec->rec_tv, NULL);
+
+            /*
+            **
+            */
+
+            sock_set_port(g_global->pr->sasend, g_global->pr->salen, htons(g_global->dport + seq));
 
             /*
             **
