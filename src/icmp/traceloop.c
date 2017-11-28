@@ -158,25 +158,25 @@ void                traceloop(void)
             **
             */
 
-            g_global->rec = (t_rec *) g_global->sendbuf;
+            rec = (t_rec *) g_global->sendbuf;
 
             /*
             **
             */
 
-            g_global->rec->rec_seq = ++seq;
+            rec->rec_seq = ++seq;
 
             /*
             **
             */
 
-            g_global->rec->rec_ttl = g_global->ttl;
+            rec->rec_ttl = g_global->ttl;
 
             /*
             **
             */
 
-            ft_gettimeofday(&g_global->rec->rec_tv, NULL);
+            ft_gettimeofday(&rec->rec_tv, NULL);
 
             /*
             **
@@ -193,12 +193,11 @@ void                traceloop(void)
             /*
             **
             */
-
             if ((code = (*g_global->pr->recv) (seq, &tvrecv)) == -3)
                 printf(" *");
             else
             {
-
+                
                 /*
                 **
                 */
