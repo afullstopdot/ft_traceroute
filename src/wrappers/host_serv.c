@@ -54,7 +54,7 @@ struct addrinfo     *ft_host_serv(const char *host, const char *serv, int family
 	*/
 
 	if ((n = getaddrinfo(host, serv, &hints, &res)) != 0)
-		return (NULL);
+		ft_fatal_error("failed to resolve dns");
 
 	/*
 	** return pointer to first on linked list

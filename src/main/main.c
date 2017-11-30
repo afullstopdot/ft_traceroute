@@ -97,8 +97,8 @@ int                 main(int argc, char **argv)
         **
         */
 
-        printf("traceroute to %s (%s) : %d hops max, %d data bytes\n",
-            ai->ai_canonname ? ai->ai_canonname : h, h, g_global->max_ttl, g_global->datalen);
+        printf("traceroute to %s%s%s (%s) : %d hops max, %d data bytes\n", 
+            C_CYN, ai->ai_canonname ? ai->ai_canonname : h, C_RST, h, g_global->max_ttl, g_global->datalen);
 
         /*
         ** Initialize according to protocol

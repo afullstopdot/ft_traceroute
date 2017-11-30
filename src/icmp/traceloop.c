@@ -183,7 +183,7 @@ void                traceloop(void)
             */
 
             sock_set_port(g_global->pr->sasend, g_global->pr->salen, htons(g_global->dport + seq));
-
+            
             /*
             **
             */
@@ -197,7 +197,7 @@ void                traceloop(void)
                 printf(" *");
             else
             {
-                
+
                 /*
                 **
                 */
@@ -216,7 +216,7 @@ void                traceloop(void)
                     */
 
                     if (getnameinfo(g_global->pr->sarecv, g_global->pr->salen, str, sizeof(str), NULL, 0, 0) == 0)
-                        printf(" %s (%s)", str, ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen));
+                        printf(" %s%s%s (%s%s%s)", C_GRN, str, C_RST, C_YEL, ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen), C_RST);
                     else
                         printf(" %s", ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen));
 

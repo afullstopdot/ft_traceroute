@@ -22,7 +22,13 @@ int                     recv_v4(int seq, struct timeval *tv)
 	struct ip		    *ip;
 	struct ip		    *hip;
 	struct icmp		    *icmp;
-	struct udphdr	    *udp;
+    struct udphdr	    *udp;
+    struct timeval      tvv;
+
+    tvv.tv_sec = 0;
+    tvv.tv_usec = 100000;
+
+    setsockopt(g_global->recvfd, SOL_SOCKET, SO_RCVTIMEO, &tvv, sizeof(tvv));
 
     /*
     ** Default value
@@ -37,7 +43,7 @@ int                     recv_v4(int seq, struct timeval *tv)
     alarm(3);
 
     /*
-    ** Infinit loop
+    ** Infinite loop
     */
 
     while (42)
@@ -61,6 +67,7 @@ int                     recv_v4(int seq, struct timeval *tv)
         */
 
 		n = recvfrom(g_global->recvfd, g_global->recvbuf, sizeof(g_global->recvbuf), 0, g_global->pr->sarecv, &len);
+        
         if (n < 0)
         {
 
@@ -68,7 +75,7 @@ int                     recv_v4(int seq, struct timeval *tv)
             ** Only continues if errno is EINTR
             */
 
-			if (errno == EINTR)
+			if (errno == EINTR || errno == EAGAIN)
 				continue;
 			else
                 ft_fatal_error("recvfrom error");

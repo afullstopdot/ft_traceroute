@@ -137,20 +137,6 @@ int                 init_env(int argc, char **argv, t_env *env)
     ttl = get_ttl(argv, argc);
 
     /*
-    ** If -m option is passed there should be a minimum of 3 args
-    */
-
-    if (ttl != FALSE)
-    {
-        /*
-        ** Make sure number of args is correct
-        */
-
-        if (!(argc > 3))
-            dump_usage();
-    }
-
-    /*
     ** Get hostname
     */
 
