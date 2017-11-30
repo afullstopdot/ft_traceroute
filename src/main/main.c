@@ -76,25 +76,25 @@ int                 main(int argc, char **argv)
         g_global->pid = getpid();
 
         /*
-        **
+        ** reset alarm
         */
 
         signal(SIGALRM, sig_alrm);
 
         /*
-        **
+        ** Using host / ip get host info as addrino {}
         */
 
         ai = ft_host_serv(g_global->env->host, NULL, 0, 0);
 
         /*
-        **
+        ** Convert host from binrary to text
         */
 
         h = ft_sock_ntop_host(ai->ai_addr, ai->ai_addrlen);
 
         /*
-        **
+        ** Dump prelimary info
         */
 
         printf("traceroute to %s%s%s (%s) : %d hops max, %d data bytes\n", 
@@ -107,11 +107,19 @@ int                 main(int argc, char **argv)
         if (ai->ai_family == AF_INET)
         {
 
+            /*
+            ** set global pr to v4 proto
+            */
+
             g_global->pr = &proto_v4;
 
         }
         else if (ai->ai_family == AF_INET6)
         {
+
+            /*
+            ** set global pr to v6 proto
+            */
 
             g_global->pr = &proto_v6;
 
@@ -133,31 +141,21 @@ int                 main(int argc, char **argv)
         g_global->pr->sasend = ai->ai_addr;
 
         /*
-        **
+        ** allocate memory with host {}len
         */
 
         g_global->pr->sarecv = ft_calloc(1, ai->ai_addrlen);
-
-        /*
-        **
-        */
-
         g_global->pr->salast = ft_calloc(1, ai->ai_addrlen);
-
-        /*
-        **
-        */
-
         g_global->pr->sabind = ft_calloc(1, ai->ai_addrlen);
 
         /*
-        **
+        ** Set addr{} len
         */
 
         g_global->pr->salen = ai->ai_addrlen;
 
         /*
-        **
+        ** Where the magic happens
         */
 
         traceloop();

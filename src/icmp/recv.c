@@ -343,7 +343,7 @@ int                     recv_v6(int seq, struct timeval *tv)
 			continue ;
     
         /*
-        **
+        ** Check icmp type and code
         */
 
         if (icmp6->icmp6_type == ICMP6_TIME_EXCEEDED && icmp6->icmp6_code == ICMP6_TIME_EXCEED_TRANSIT)
