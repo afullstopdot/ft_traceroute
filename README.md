@@ -56,7 +56,7 @@ make re
 ## traceroute usage
 
 ```
-usage: ./traceroute [ -m <maxttl> -f <startttl> -q <nprobes> -v (verbose) -n (IP Address != Map) -h (help) ] <hostname>\n
+usage: ./traceroute [ -m <maxttl> -f <startttl> -q <nprobes> -v (verbose) -n (IP Address != Map) -h (help) ] <hostname>
 ```
 
 Where “hostname” is the host you want to traceroute
