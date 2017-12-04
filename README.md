@@ -25,11 +25,8 @@ git clone https://github.com/afullstopdot/ft_traceroute.git on terminal or downl
 
 ## Compiling the library
 
-For use
 
-### Compiling
-
-Compile the program for use, using the Makefile
+### Compile the program for use, using the Makefile
 
 ```
 make all
