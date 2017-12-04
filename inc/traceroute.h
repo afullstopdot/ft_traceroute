@@ -53,6 +53,9 @@
 # define A_VERBOSE "-v"
 # define A_HELP "-h"
 # define A_TTL "-m"
+# define A_TTL_START "-f"
+# define A_NPROBES "-q"
+# define A_MAPIP "-n"
 
 /*
 ** Colors
@@ -103,6 +106,18 @@ typedef struct      s_env
     */
 
     char            *host;
+
+    /*
+    ** First TTL to start, Defaults to 1
+    */
+
+    unsigned int    ttl_start;
+
+    /*
+    ** MAP IP Adress for displaying
+    */
+
+    unsigned int    map_ip;
 
 }                   t_env;
 

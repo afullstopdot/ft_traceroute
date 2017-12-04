@@ -14,6 +14,10 @@ void                traceloop(void)
     t_rec           *rec;
     struct timeval  tvrecv;
 
+    /*
+    ** Silence compiler
+    */
+
     rec = NULL;
 
     /*
@@ -114,13 +118,18 @@ void                traceloop(void)
     */
 
     seq = 0;
+
+    /*
+    **
+    */
+
     done = 0;
 
     /*
     **
     */
 
-    for (g_global->ttl = 1; g_global->ttl <= g_global->max_ttl && done == 0; g_global->ttl++)
+    for (g_global->ttl = g_global->env->ttl_start; g_global->ttl <= g_global->max_ttl && done == 0; g_global->ttl++)
     {
 
         /*
@@ -216,7 +225,13 @@ void                traceloop(void)
                     */
 
                     if (getnameinfo(g_global->pr->sarecv, g_global->pr->salen, str, sizeof(str), NULL, 0, 0) == 0)
-                        printf(" %s%s%s (%s%s%s)", C_GRN, str, C_RST, C_YEL, ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen), C_RST);
+                    {
+                        if (g_global->env->map_ip)
+                            printf(" %s%s%s (%s%s%s)", C_GRN, str, C_RST, C_YEL, ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen), C_RST);
+                        else
+                            printf(" %s%s%s", C_YEL, ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen), C_RST);
+                        
+                    }
                     else
                         printf(" %s", ft_sock_ntop_host(g_global->pr->sarecv, g_global->pr->salen));
 
