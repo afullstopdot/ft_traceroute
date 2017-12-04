@@ -65,13 +65,13 @@ verbose : verbose output
 help : display usage
 ```
 ```
-maxttl : number of hops to host
+maxttl : number of hops to host, defaults to 30
 ```
 ```
 startttl : first ttl to start, defaults to 1
 ```
 ```
-nprobes : sets the number of probe packets to be sent for each hop
+nprobes : sets the number of probe packets to be sent for each hop, defaults to 3
 ```
 ```
 map ip address : do not map an ip address when displaying info
