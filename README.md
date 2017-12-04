@@ -11,7 +11,7 @@ To use the progam for learning or use clone it locally.
 What things you need to install the software and how to install them
 
 ```
-gcc or clang compiler
+gcc compiler, make : apt install gcc, make
 ```
 
 ### Installing
@@ -27,9 +27,9 @@ git clone https://github.com/afullstopdot/ft_traceroute.git on terminal or downl
 
 For use
 
-### Break down into end to end tests
+### Compiling
 
-Compile the library for use, using the Makefile
+Compile the program for use, using the Makefile
 
 ```
 make all
