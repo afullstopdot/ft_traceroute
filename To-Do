@@ -1,9 +1,0 @@
-Files to create
---------------------->
-
-traceroute/trace.h
-traceroute/main.c
-traceroute/traceloop.c
-traceroute/recv_v4.c
-traceroute/sig_alrm.c
-traceroute/icmpcode_v6.c
