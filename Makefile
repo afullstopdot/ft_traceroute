@@ -115,6 +115,7 @@ $(OBJDIR):
 
 
 $(BINDIR)/$(EXE): $(INTERPRETER_OBJ) $(ERROR_OBJ) $(PRIV_OBJ) $(ICMP_OBJ) $(SOCK_OBJ) $(SIGN_OBJ) $(WRAP_OBJ) $(MAIN_OBJ)
+	@make -C libft
 	@echo "\033[0;31m[PING]: \033[0mLinking object files!"
 	@$(LINKER) $(INTERPRETER_OBJ) $(ERROR_OBJ) $(PRIV_OBJ) $(ICMP_OBJ) $(SOCK_OBJ) $(SIGN_OBJ) $(WRAP_OBJ) $(MAIN_OBJ) $(FLAGS) -o $@ $(LIBFT) -I $(INCDIR) $(LIBFT_H)
 	@echo "\033[0;31m[PING]: \033[0mLinking complete!"
